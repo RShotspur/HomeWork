@@ -11,9 +11,6 @@ public class Main {
         int d = Rand();
         int e = Rand();
 
-
-
-
         //for 3 numbers
         System.out.println("3 random numbers");
         //-------------------------------------------------
@@ -952,7 +949,7 @@ public class Main {
 
     }
     public static int Rand (){
-        int rand =  (int)Math.floor((Math.random() * (100 - 1)) + 1);
+        int rand = (int)Math.floor((Math.random() * (100 - 1)) + 1);
         return rand;
     }
 }
