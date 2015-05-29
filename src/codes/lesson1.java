@@ -12,7 +12,7 @@ public class lesson1 {
             int intNumber = 1000;
             long longNumber = 1235447882;
 
-            char charSymbol = 'g';
+            char charSymbol = 1;
 
             float floatNumber = 10.5f;
             double doubleNumber = 10.5d;
