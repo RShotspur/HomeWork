@@ -22,8 +22,6 @@ public class Task1 {
         }
         System.out.println("\nMax number is: " + max);
 
-
-        //
     }
     public static int Rand (){
         int rand = (int)Math.floor((Math.random() * (100 - 1)) + 1);
