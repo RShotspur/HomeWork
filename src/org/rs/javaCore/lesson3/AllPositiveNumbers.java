@@ -18,9 +18,7 @@ public class AllPositiveNumbers {
         massive[9] = -222;
 
         for (int i = 0; i < massive.length; i++) {
-            if (massive[i] < 0) {
-                massive[i] *= -1;
-            }
+            massive[i] = Math.abs(massive[i]);
         }
         for (int i = 0; i < massive.length; i++) {
             System.out.println(massive[i]);
