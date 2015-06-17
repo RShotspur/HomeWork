@@ -14,8 +14,9 @@ public class Main {
         queens.add(first);
         queens.add(second);
         queens.add(third);
-        System.out.println(first.position());
-        System.out.println(second.position());
+        for(Queen queen : queens){
+            System.out.println(queen.position());
+        }
 //        first.printDeskCoordinates();
 //        first.printAllQueenActions();
         Chess.figureScope(queens);
