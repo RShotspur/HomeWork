@@ -34,20 +34,13 @@ public class Chess {
 
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
-//                    Boolean found = false;
                     for (int k = 0; k < aQueen.getScope().size(); k++) {
                         if (desk[i][j].equals(aQueen.getScope().get(k))) {
-//                            found = true;
                             activeDesk[i][j] = true;
-                            //System.out.print("[" + 1 + "]");
                         }
                     }
-//                    if (!found) {
-//                        System.out.print("[" + 0 + "]");
-//                    }
 
                 }
-//                System.out.println();
 
             }
 
