@@ -1,5 +1,7 @@
 package org.rs.javaCore.lesson8;
 
+import java.util.ArrayList;
+
 /**
  * Created by ADI on 16.06.2015.
  */
@@ -14,19 +16,49 @@ public class Chess {
             {"g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"},
             {"h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8"}
     };
-    public static void figureScope(Queen queen) {
+    public static Boolean[][] activeDesk = new Boolean[8][8];
 
+
+
+    public static void figureScope(ArrayList<Queen> queen) {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                Boolean found = false;
-                for (int k = 0; k < queen.getScope().size(); k++) {
-                    if(desk[i][j].equals(queen.getScope().get(k))){
-                        found = true;
-                        System.out.print("[" + 1 + "]");
+                activeDesk[i][j] = false;
+
+            }
+
+        }
+
+        for (Queen aQueen : queen) {
+
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+//                    Boolean found = false;
+                    for (int k = 0; k < aQueen.getScope().size(); k++) {
+                        if (desk[i][j].equals(aQueen.getScope().get(k))) {
+//                            found = true;
+                            activeDesk[i][j] = true;
+                            //System.out.print("[" + 1 + "]");
+                        }
                     }
+//                    if (!found) {
+//                        System.out.print("[" + 0 + "]");
+//                    }
+
                 }
-                if (!found){
+//                System.out.println();
+
+            }
+
+        }
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (activeDesk[i][j]){
+                    System.out.print("[" + 1 + "]");
+                }
+                else {
                     System.out.print("[" + 0 + "]");
                 }
 
@@ -34,6 +66,7 @@ public class Chess {
             System.out.println();
 
         }
+
     }
 
 

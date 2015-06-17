@@ -30,22 +30,22 @@ public class Queen {
         }
         int countChar = this.positionChar;
         int countInt = this.positionInt;
-        while (countChar < 8 && countInt < 8){
+        while (countChar < 7 && countInt < 7){
             this.scope.add(Chess.desk[++countChar][++countInt]);
         }
         countChar = this.positionChar;
         countInt = this.positionInt;
-        while (countChar >= 0 && countInt >= 0){
+        while (countChar > 0 && countInt > 0){
             this.scope.add(Chess.desk[--countChar][--countInt]);
         }
         countChar = this.positionChar;
         countInt = this.positionInt;
-        while (countChar >= 0 && countInt < 8){
+        while (countChar > 0 && countInt < 7){
             this.scope.add(Chess.desk[--countChar][++countInt]);
         }
         countChar = this.positionChar;
         countInt = this.positionInt;
-        while (countChar < 8 && countInt >= 0){
+        while (countChar < 7 && countInt > 0){
             this.scope.add(Chess.desk[++countChar][--countInt]);
         }
 
