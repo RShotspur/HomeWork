@@ -53,7 +53,7 @@ public class Queen {
     public Queen(String positionChar, int positionInt) {
         String[] chars = new String[] {"a", "b", "c", "d", "e", "f", "g", "h"};
         for (int i = 0; i < chars.length; i++) {
-            if (positionChar == chars[i]){
+            if (positionChar.equals(chars[i])){
                 this.positionChar = i;
             }
         }
@@ -67,27 +67,27 @@ public class Queen {
                 this.scope.add(Chess.desk[i][this.positionInt]);
             }
             if (i != this.positionInt){
-                this.scope.add(Chess.desk[this.positionInt][i]);
+                this.scope.add(Chess.desk[this.positionChar][i]);
             }
         }
         int countChar = this.positionChar;
         int countInt = this.positionInt;
-        while (countChar < 8 && countInt < 8){
+        while (countChar < 7 && countInt < 7){
             this.scope.add(Chess.desk[++countChar][++countInt]);
         }
         countChar = this.positionChar;
         countInt = this.positionInt;
-        while (countChar >= 0 && countInt >= 0){
+        while (countChar > 0 && countInt > 0){
             this.scope.add(Chess.desk[--countChar][--countInt]);
         }
         countChar = this.positionChar;
         countInt = this.positionInt;
-        while (countChar >= 0 && countInt < 8){
+        while (countChar > 0 && countInt < 7){
             this.scope.add(Chess.desk[--countChar][++countInt]);
         }
         countChar = this.positionChar;
         countInt = this.positionInt;
-        while (countChar < 8 && countInt >= 0){
+        while (countChar < 7 && countInt > 0){
             this.scope.add(Chess.desk[++countChar][--countInt]);
         }
 
@@ -101,9 +101,14 @@ public class Queen {
     }
 
     public void printAllQueenActions(){
-        for (int i = 0; i < this.scope.size(); i++) {
-            System.out.println(this.scope.get(i));
+        for (String aScope : this.scope) {
+            System.out.print("[" + aScope + " ]");
         }
+        System.out.println();
+    }
+
+    public ArrayList<String> getScope(){
+        return this.scope;
     }
 
 
