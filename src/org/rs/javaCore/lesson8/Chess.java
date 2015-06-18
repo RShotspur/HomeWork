@@ -17,6 +17,36 @@ public class Chess {
             {"h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8"}
     };
     public static Boolean[][] activeDesk = new Boolean[8][8];
+    public static ArrayList<String> arrayFoundAnswer = new ArrayList<String>();
+    public static ArrayList<String> arrayOfAll = new ArrayList<String>();
+
+    public static ArrayList<String> possibleVariants(int num){
+        if (num == 8){
+            return arrayFoundAnswer;
+        }
+        for (String arrayElement : arrayOfAll){
+            System.out.print(arrayElement);
+        }
+        System.out.println();
+        for (int i = num; i < 8; i++) {
+            Queen temp = new Queen(num, Main.Rand());
+            for (String scope: temp.getScope()){
+                System.out.print(scope + " - ");
+                for (String elementOfAll : arrayOfAll){
+                    System.out.print(elementOfAll + " * ");
+                    if(scope.equals(elementOfAll)){
+                        return possibleVariants(num+1);
+                    }
+                }
+            }
+            arrayFoundAnswer.add(temp.position());
+            for (String tempElement : temp.getScope()){
+                arrayOfAll.add(tempElement);
+            }
+            num++;
+        }
+        return arrayFoundAnswer;
+    }
 
 
 

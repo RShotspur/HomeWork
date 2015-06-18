@@ -92,6 +92,42 @@ public class Queen {
         }
 
     }
+    public Queen(int positionChar, int positionInt) {
+        this.positionChar = positionChar;
+        this.positionInt = positionInt - 1;
+
+        this.scope.add(Chess.desk[this.positionChar][this.positionInt]);
+
+        for (int i = 0; i < 8; i++) {
+            if (i != this.positionChar){
+                this.scope.add(Chess.desk[i][this.positionInt]);
+            }
+            if (i != this.positionInt){
+                this.scope.add(Chess.desk[this.positionInt][i]);
+            }
+        }
+        int countChar = this.positionChar;
+        int countInt = this.positionInt;
+        while (countChar < 7 && countInt < 7){
+            this.scope.add(Chess.desk[++countChar][++countInt]);
+        }
+        countChar = this.positionChar;
+        countInt = this.positionInt;
+        while (countChar > 0 && countInt > 0){
+            this.scope.add(Chess.desk[--countChar][--countInt]);
+        }
+        countChar = this.positionChar;
+        countInt = this.positionInt;
+        while (countChar > 0 && countInt < 7){
+            this.scope.add(Chess.desk[--countChar][++countInt]);
+        }
+        countChar = this.positionChar;
+        countInt = this.positionInt;
+        while (countChar < 7 && countInt > 0){
+            this.scope.add(Chess.desk[++countChar][--countInt]);
+        }
+
+    }
 
     public String position(){
         return Chess.desk[positionChar][positionInt];
