@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Queen {
     private int positionChar;
     private int positionInt;
+    //Array of blocked fields
     private ArrayList<String> scope = new ArrayList<String>();
 
 
@@ -128,21 +129,22 @@ public class Queen {
         }
 
     }
-
+    //Returned the arrayValue of position
     public String position(){
         return Chess.desk[positionChar][positionInt];
     }
+    //Returned the position of Queen on the desk
     public void printDeskCoordinates(){
         System.out.print(this.positionChar + " " + this.positionInt);
     }
-
+    //Returned area of Queen impact by every field
     public void printAllQueenActions(){
         for (String aScope : this.scope) {
             System.out.print("[" + aScope + " ]");
         }
         System.out.println();
     }
-
+    //Returned area of Queen impact by array
     public ArrayList<String> getScope(){
         return this.scope;
     }

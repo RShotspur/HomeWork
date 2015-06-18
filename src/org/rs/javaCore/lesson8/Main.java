@@ -1,15 +1,15 @@
 package org.rs.javaCore.lesson8;
 
-import java.util.ArrayList;
+
 
 /**
  * Created by ADI on 16.06.2015.
  */
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> queens = Chess.possibleVariants(0);
+        Chess.possibleVariants(0);
         System.out.println();
-        for (String element : queens){
+        for (String element : Chess.arrayFoundAnswer){
             System.out.println(element);
         }
 
