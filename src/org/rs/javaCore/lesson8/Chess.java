@@ -30,47 +30,58 @@ public class Chess {
         if (num == 8){
             return;
         }
-        num++;
-        count++;
-        System.out.println(count);
-        for (String arrayElement : arrayOfAll){
-            System.out.print(arrayElement);
-        }
         System.out.println();
-        boolean status = true;
+        count++;
+        if (count > 50){
+            count = 0;
+            arrayFoundAnswer = new ArrayList<String>();
+            arrayOfAll = new ArrayList<String>();
+            System.out.println("array was set to zero");
+            possibleVariants(0);
+        }
+        System.out.println("count is: " + count);
+//        for (String arrayElement : arrayOfAll){
+//            System.out.print(arrayElement);
+//        }
+        boolean status = false;
         for (int i = num; i < 8; i++) {
-            System.out.print("First round@ ");
+//            System.out.print("First round@ ");
             Queen temp = new Queen(num, Main.Rand());
-            temp.position();
+            System.out.println(temp.position());
             for (String scope: temp.getScope()){
-                if (!status){
+                if (status){
                     break;
                 }
-                System.out.print("Second Round@ ");
-                for (String elementOfAll : arrayOfAll){
-                    System.out.print("Third round@ ");
-                    if(scope.equals(elementOfAll)){
-                        status = false;
+//                System.out.print("Second Round@ ");
+                for (String queen : arrayFoundAnswer){
+//                    System.out.print("Third round@ ");
+                    if(scope.equals(queen)){
+                        status = true;
                     }
-                    if (!status){
+                    if (status){
                         break;
                     }
                 }
-                if (!status){
+                if (status){
                     break;
                 }
 
             }
+            if (status){
+                possibleVariants(num);
+            }
             arrayFoundAnswer.add(temp.position());
+            count = 0;
+            num++;
             System.out.println("Element was added");
             for (String tempElement : temp.getScope()){
                 arrayOfAll.add(tempElement);
             }
             System.out.println("Array was fulled");
-            num++;
             System.out.println("num is: " + num);
+            possibleVariants(num);
         }
-        return;
+
     }
 
 
