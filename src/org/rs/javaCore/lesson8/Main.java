@@ -32,6 +32,7 @@ public class Main {
 
 
     public static int Rand (){
+//        int[] array = new int[] {1, 2, 3, 4, 5, 6, 7, 8};
         int rand = (int)Math.floor((Math.random() * (9 - 1)) + 1);
         return rand;
     }
