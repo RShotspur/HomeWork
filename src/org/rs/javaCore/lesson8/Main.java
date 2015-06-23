@@ -7,6 +7,7 @@ package org.rs.javaCore.lesson8;
  */
 public class Main {
     public static void main(String[] args) {
+
         Chess.possibleVariants(0);
         System.out.println();
         for (String element : Chess.arrayFoundAnswer){
@@ -27,8 +28,8 @@ public class Main {
 //        Chess.figureScope(queens);
 
 
-    }
 
+    }
 
 
     public static int Rand (){

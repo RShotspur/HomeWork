@@ -21,33 +21,35 @@ public class Chess {
     public static Boolean[][] activeDesk = new Boolean[8][8];
     //Array of founded places on desk
     public static ArrayList<String> arrayFoundAnswer = new ArrayList<String>();
-    //Array of ALL blocked fields
-    public static ArrayList<String> arrayOfAll = new ArrayList<String>();
 
     //Logic for task solution
     public static int count = 0;
+    public static int countOfAll = 0;
     public static void possibleVariants(int num){
-        if (num == 8){
+        if (num > 7){
             return;
         }
-        System.out.println();
+//        System.out.println();
         count++;
+        if(countOfAll > 5){
+            return;
+        }
         if (count > 20){
             count = 0;
+            countOfAll++;
             arrayFoundAnswer = new ArrayList<String>();
-            arrayOfAll = new ArrayList<String>();
             System.out.println("array was set to zero");
             possibleVariants(0);
         }
-        System.out.println("count is: " + count);
+//        System.out.println("count is: " + count);
 //        for (String arrayElement : arrayOfAll){
 //            System.out.print(arrayElement);
 //        }
         boolean status = false;
-        for (int i = num; i < 8; i++) {
+        for (int i = num; i < 7; i++) {
 //            System.out.print("First round@ ");
             Queen temp = new Queen(num, Main.Rand());
-            System.out.println(temp.position());
+//            System.out.println(temp.position());
             for (String scope: temp.getScope()){
                 if (status){
                     break;
@@ -73,14 +75,20 @@ public class Chess {
             arrayFoundAnswer.add(temp.position());
             count = 0;
             num++;
-            System.out.println("Element was added");
-            for (String tempElement : temp.getScope()){
-                arrayOfAll.add(tempElement);
+            if (arrayFoundAnswer.size() > 7){
+                break;
             }
-            System.out.println("Array was fulled");
+
+//            System.out.println("Element was added");
             System.out.println("num is: " + num);
-            possibleVariants(num);
+
+
+
         }
+        if (arrayFoundAnswer.size() > 7){
+            return;
+        }
+        possibleVariants(num);
 
     }
 
