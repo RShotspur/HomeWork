@@ -32,7 +32,7 @@ public class Chess {
         }
         System.out.println();
         count++;
-        if (count > 50){
+        if (count > 20){
             count = 0;
             arrayFoundAnswer = new ArrayList<String>();
             arrayOfAll = new ArrayList<String>();

@@ -26,7 +26,7 @@ public class Queen {
                 this.scope.add(Chess.desk[i][this.positionInt]);
             }
             if (i != this.positionInt){
-                this.scope.add(Chess.desk[this.positionInt][i]);
+                this.scope.add(Chess.desk[this.positionChar][i]);
             }
         }
         int countChar = this.positionChar;
@@ -104,7 +104,7 @@ public class Queen {
                 this.scope.add(Chess.desk[i][this.positionInt]);
             }
             if (i != this.positionInt){
-                this.scope.add(Chess.desk[this.positionInt][i]);
+                this.scope.add(Chess.desk[this.positionChar][i]);
             }
         }
         int countChar = this.positionChar;
