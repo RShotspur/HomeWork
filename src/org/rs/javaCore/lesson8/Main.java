@@ -1,18 +1,26 @@
 package org.rs.javaCore.lesson8;
 
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 
 /**
  * Created by ADI on 16.06.2015.
  */
 public class Main {
     public static void main(String[] args) {
+        boolean temp = true;
+        while (temp){
+            AbstractList<String> array = Chess.possibleVariants(new ArrayList<String>());
+            if (array.size() > 7){
+                temp = false;
+                for (String tempString : array){
+                    System.out.println(tempString);
+                }
+            }
 
-        Chess.possibleVariants(0);
-        System.out.println();
-        for (String element : Chess.arrayFoundAnswer){
-            System.out.println(element);
         }
+
 
 //        Queen first = new Queen("h", 3);
 //        Queen second = new Queen("a", 6);
