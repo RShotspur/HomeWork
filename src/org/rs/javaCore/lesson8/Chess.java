@@ -20,27 +20,27 @@ public class Chess {
     //Desk in Boolean
     public static Boolean[][] activeDesk = new Boolean[8][8];
     //Array of founded places on desk
-//    public static ArrayList<String> arrayFoundAnswer = new ArrayList<String>();
 
     //Logic for task solution
     public static int count = 0;
-    public static int countOfAll = 0;
-    public static ArrayList<String> possibleVariants(ArrayList<String> arrayList){
+    public static ArrayList<Queen> possibleVariants(ArrayList<Queen> arrayList){
         if (arrayList.size()>7){
             return arrayList;
         }
         if (count > 20){
+            count = 0;
             return arrayList;
+
         }
         count++;
         Queen tempQueen = new Queen(arrayList.size(), Main.Rand());
         boolean status = false;
-        for (String tempValue : arrayList){
+        for (Queen tempValue : arrayList){
             if(status){
                 break;
             }
             for (String tempValue2 : tempQueen.getScope()){
-                if (tempValue.equals(tempValue2)){
+                if (tempValue.position().equals(tempValue2)){
                     status = true;
                     break;
                 }
@@ -48,87 +48,12 @@ public class Chess {
 
         }
         if(!status){
-            arrayList.add(tempQueen.position());
+            arrayList.add(tempQueen);
             count = 0;
         }
         return possibleVariants(arrayList);
     }
-//    public static void possibleVariants(int num){
-//        if (arrayFoundAnswer.size() > 7){
-//            return;
-//        }
-//        if (num > 7){
-//            return;
-//        }
-////        System.out.println();
-//        count++;
-//        if(countOfAll > 5){
-//            return;
-//        }
-//        if (count > 20){
-//            count = 0;
-//            countOfAll++;
-//            arrayFoundAnswer = new ArrayList<String>();
-//            System.out.println("array was set to zero");
-//            System.out.println("Array size is: " + arrayFoundAnswer.size());
-//            possibleVariants(0);
-//        }
-//        if (arrayFoundAnswer.size() > 7){
-//            return;
-//        }
-////        System.out.println("count is: " + count);
-////        for (String arrayElement : arrayOfAll){
-////            System.out.print(arrayElement);
-////        }
-//        boolean status = false;
-//        for (int i = num; i < 7; i++) {
-//            if (arrayFoundAnswer.size() > 7){
-//                break;
-//            }
-////            System.out.print("First round@ ");
-//            Queen temp = new Queen(num, Main.Rand());
-////            System.out.println(temp.position());
-//            for (String scope: temp.getScope()){
-//                if (status){
-//                    break;
-//                }
-////                System.out.print("Second Round@ ");
-//                for (String queen : arrayFoundAnswer){
-////                    System.out.print("Third round@ ");
-//                    if(scope.equals(queen)){
-//                        status = true;
-//                    }
-//                    if (status){
-//                        break;
-//                    }
-//                }
-//                if (status){
-//                    break;
-//                }
-//
-//            }
-//            if (status){
-//                possibleVariants(num);
-//            }
-//            arrayFoundAnswer.add(temp.position());
-//            count = 0;
-//            num++;
-//            if (arrayFoundAnswer.size() > 7){
-//                break;
-//            }
-//
-////            System.out.println("Element was added");
-//            System.out.println("num is: " + num);
-//
-//
-//
-//        }
-//        if (arrayFoundAnswer.size() > 7){
-//            return;
-//        }
-//        possibleVariants(num);
-//
-//    }
+
 
 
     //Print out information about Queens on the desk
@@ -147,10 +72,8 @@ public class Chess {
 
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
-                    for (int k = 0; k < aQueen.getScope().size(); k++) {
-                        if (desk[i][j].equals(aQueen.getScope().get(k))) {
+                    if (desk[i][j].equals(aQueen.position())) {
                             activeDesk[i][j] = true;
-                        }
                     }
 
                 }

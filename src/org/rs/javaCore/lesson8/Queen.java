@@ -133,6 +133,10 @@ public class Queen {
     public String position(){
         return Chess.desk[positionChar][positionInt];
     }
+    //Full in array with Queens
+//    public ArrayList<Queen> setQueensArray(ArrayList<String> temp){
+//
+//    }
     //Returned the position of Queen on the desk
     public void printDeskCoordinates(){
         System.out.print(this.positionChar + " " + this.positionInt);

@@ -1,7 +1,6 @@
 package org.rs.javaCore.lesson8;
 
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 
 /**
@@ -11,32 +10,21 @@ public class Main {
     public static void main(String[] args) {
         boolean temp = true;
         while (temp){
-            AbstractList<String> array = Chess.possibleVariants(new ArrayList<String>());
-            if (array.size() > 7){
+            //Creates array with result
+            ArrayList<Queen> queens = Chess.possibleVariants(new ArrayList<Queen>());
+            //Until it becomes useful
+            if (queens.size() > 7){
+                //Say to cycle when to stop
                 temp = false;
-                for (String tempString : array){
-                    System.out.println(tempString);
+                //And print out the result
+                for (Queen tempQueen : queens){
+                    System.out.println(tempQueen.position());
                 }
+                Chess.figureScopeOnDesk(queens);
             }
-            System.gc();
+
 
         }
-
-
-//        Queen first = new Queen("h", 3);
-//        Queen second = new Queen("a", 6);
-//        Queen third = new Queen("e", 4);
-//        queens.add(first);
-//        queens.add(second);
-//        queens.add(third);
-//        for(Queen queen : queens){
-//            System.out.println(queen.position());
-//        }
-//        first.printDeskCoordinates();
-//        first.printAllQueenActions();
-//        Chess.figureScope(queens);
-
-
 
     }
 
