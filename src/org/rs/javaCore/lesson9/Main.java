@@ -25,7 +25,7 @@ public class Main {
         printTitle("The result of integer division");
         System.out.println(fraction.getIntegerFraction());
 
-        printTitle("Modulo of division");
+        printTitle("Numerator after division");
         System.out.println(fraction.getNumeratorAfterDivision());
 
         printTitle("Returned simplified fraction");
