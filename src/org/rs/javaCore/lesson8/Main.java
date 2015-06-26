@@ -14,7 +14,7 @@ public class Main {
             ArrayList<Queen> queens = Chess.possibleVariants(new ArrayList<Queen>());
             //Until it becomes useful
             if (queens.size() > 7){
-                //Say to cycle when to stop
+                //Say cycle when to stop
                 temp = false;
                 //And print out the result
                 for (Queen tempQueen : queens){
