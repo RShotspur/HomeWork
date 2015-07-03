@@ -16,5 +16,10 @@ public class Main {
 
         System.out.println();
 
+        Elevator elevator = new Elevator(1, 5);
+        elevator.elevatorTrip();
+
     }
+
+
 }
